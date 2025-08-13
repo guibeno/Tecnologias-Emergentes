@@ -1,0 +1,18 @@
+Cada um tem seu identificador unico (HASH)
+
+
+produtor: 4 numeros + data + hora
+
+entregador: 4n do produtos+ 5 numeros + data + hora 
+
+vendedor: 6 numeros
+
+- se o produto final tem 15 numeros passou pelos 3 processos
+
+- se tiver so 4 numeros apenas o produto passou apenas pela producao
+
+- se tiver 9 numeros foi produzido e entregue (venda nao foi realizada com sucesso ou produto rejeitado)
+
+- se tiver 10 numeros foi produzido e vendido diretamente, sem precisar de entrega (ex producao e venda no mesmo local)
+
+- todos os codigos unicos das etapas sao salvos em numeros hexadecimais para ter mais opções de dados
