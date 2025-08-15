@@ -1,0 +1,71 @@
+import random 
+
+from datetime import datetime
+
+
+products = [
+    {"name": "Café Orgânico",         "id": "3FA2"},
+    {"name": "Mel Puro",              "id": "8C1E"},
+    {"name": "Arroz Integral",        "id": "D47B"},
+    {"name": "Feijão Preto",          "id": "7B3F"},
+    {"name": "Chá de Hortelã",        "id": "290E"},
+    {"name": "Leite de Amêndoas",     "id": "5D1C"},
+    {"name": "Azeite de Oliva",       "id": "E8AF"},
+    {"name": "Molho de Tomate",       "id": "4F03"},
+    {"name": "Granola Caseira",       "id": "6C7B"},
+    {"name": "Farinha de Aveia",      "id": "90D5"},
+    {"name": "Biscoito Integral",     "id": "2A1C"},
+    {"name": "Queijo Vegano",         "id": "F342"},
+    {"name": "Suco Natural",          "id": "118E"},
+    {"name": "Chocolate Amargo",      "id": "BDE4"},
+    {"name": "Iogurte Vegetal",       "id": "9A7F"},
+    {"name": "Vinagre de Maçã",       "id": "C1A2"},
+    {"name": "Óleo de Coco",          "id": "0B7D"},
+    {"name": "Tempero Artesanal",     "id": "A24F"},
+    {"name": "Pão Integral",          "id": "3C19"},
+    {"name": "Refrigerante Natural",  "id": "6EF0"},
+]
+
+distributors = [
+    {"name": "Distribuidora Sol Nascente",     "id": "A3C1F"},
+    {"name": "Transporte Rápido Oeste",        "id": "7F8E2"},
+    {"name": "Distribuições Verdes",           "id": "D014B"},
+    {"name": "Logística Central",              "id": "2CB7D"},
+    {"name": "Entrega Certa Brasil",           "id": "E51A3"},
+]
+
+sellers = [
+    {"name": "Mercado Bom Preço",         "id": "8FD4A1"},
+    {"name": "Empório Natural Vida",      "id": "1C7E3F"},
+    {"name": "Feira da Terra",            "id": "B2049C"},
+    {"name": "Comercial Sabor e Saúde",   "id": "36A7D8"},
+    {"name": "Mercado Verde Esperança",   "id": "F98B12"},
+    {"name": "Loja do Campo",             "id": "0DE431"},
+    {"name": "Empório da Família",        "id": "C7F02B"},
+    {"name": "Mercado da Serra",          "id": "62E19D"},
+    {"name": "Loja Natural Essência",     "id": "4AB73E"},
+    {"name": "Feira Popular Brasil",      "id": "9F13C0"},
+]
+
+
+
+
+def realizar_venda():
+    item_produto = random.choice(products)
+    item_distribuidor = random.choice(distributors)
+    item_seller = random.choice(sellers)
+    horario = datetime.now()
+    codigo_final = f"{item_produto['id']}-{item_distribuidor['id']}-{item_seller['id']}-{horario}"
+
+    print("Código de venda:", codigo_final)
+
+realizar_venda()
+    
+    
+    
+    
+    
+    
+    
+
+    
