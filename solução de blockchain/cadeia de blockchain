@@ -1,0 +1,124 @@
+from datetime import datetime
+
+
+products = [
+    {"name": "Café Orgânico",         "id": "3FA2",  "unique_id": 1},
+    {"name": "Mel Puro",              "id": "8C1E",  "unique_id": 2},
+    {"name": "Arroz Integral",        "id": "D47B",  "unique_id": 3},
+    {"name": "Feijão Preto",          "id": "7B3F",  "unique_id": 4},
+    {"name": "Chá de Hortelã",        "id": "290E",  "unique_id": 5},
+    {"name": "Leite de Amêndoas",     "id": "5D1C",  "unique_id": 6},
+    {"name": "Azeite de Oliva",       "id": "E8AF",  "unique_id": 7},
+    {"name": "Molho de Tomate",       "id": "4F03",  "unique_id": 8},
+    {"name": "Granola Caseira",       "id": "6C7B",  "unique_id": 9},
+    {"name": "Farinha de Aveia",      "id": "90D5",  "unique_id": 10},
+    {"name": "Biscoito Integral",     "id": "2A1C",  "unique_id": 11},
+    {"name": "Queijo Vegano",         "id": "F342",  "unique_id": 12},
+    {"name": "Suco Natural",          "id": "118E",  "unique_id": 13},
+    {"name": "Chocolate Amargo",      "id": "BDE4",  "unique_id": 14},
+    {"name": "Iogurte Vegetal",       "id": "9A7F",  "unique_id": 15},
+    {"name": "Vinagre de Maçã",       "id": "C1A2",  "unique_id": 16},
+    {"name": "Óleo de Coco",          "id": "0B7D",  "unique_id": 17},
+    {"name": "Tempero Artesanal",     "id": "A24F",  "unique_id": 18},
+    {"name": "Pão Integral",          "id": "3C19",  "unique_id": 19},
+    {"name": "Refrigerante Natural",  "id": "6EF0",  "unique_id": 20},
+]
+
+
+distributors = [
+    {"name": "Distribuidora Sol Nascente",     "id": "A3C1F",  "unique_id": 1},
+    {"name": "Transporte Rápido Oeste",        "id": "7F8E2",  "unique_id": 2},
+    {"name": "Distribuições Verdes",           "id": "D014B",  "unique_id": 3},
+    {"name": "Logística Central",              "id": "2CB7D",  "unique_id": 4},
+    {"name": "Entrega Certa Brasil",           "id": "E51A3",  "unique_id": 5},
+]
+
+sellers = [
+    {"name": "Mercado Bom Preço",         "id": "8FD4A1",  "unique_id": 1},
+    {"name": "Empório Natural Vida",      "id": "1C7E3F",  "unique_id": 2},
+    {"name": "Feira da Terra",            "id": "B2049C",  "unique_id": 3},
+    {"name": "Comercial Sabor e Saúde",   "id": "36A7D8",  "unique_id": 4},
+    {"name": "Mercado Verde Esperança",   "id": "F98B12",  "unique_id": 5},
+    {"name": "Loja do Campo",             "id": "0DE431",  "unique_id": 6},
+    {"name": "Empório da Família",        "id": "C7F02B",  "unique_id": 7},
+    {"name": "Mercado da Serra",          "id": "62E19D",  "unique_id": 8},
+    {"name": "Loja Natural Essência",     "id": "4AB73E",  "unique_id": 9},
+    {"name": "Feira Popular Brasil",      "id": "9F13C0",  "unique_id": 10},
+]
+
+
+
+def product_key():
+    print('\n📦 Qual produto vai ser selecionado:')
+    print(f'products')
+    for i in products:
+        print(f"{i['unique_id']} - {i['name']}")
+    valor = int(input('Insira o valor: '))
+    if not (1 <= valor <= len(products)):
+        raise ValueError("Produto inválido.")
+    id_product = products[valor - 1]['id']
+    horario = datetime.now().isoformat()
+    id_product += (str(horario)) 
+    
+
+    return id_product 
+
+
+def distributors_key(produto_id):
+    print('\n🚚 Qual entregar vai ser selecionada:')
+    print(f'distribuidores')
+    for i in distributors:
+        print(f"{i['unique_id']} - {i['name']}")
+    valor = int(input('Insira o valor: '))
+    if not (1 <= valor <= len(distributors)):
+        raise ValueError("Produto inválido.")
+    id_distributors = distributors[valor - 1]['id']
+    horario = datetime.now().isoformat()
+    id_distributors += (str(horario)) + ' - ' + produto_id 
+   
+    return id_distributors
+
+
+def sellers_key(distributors):
+    print('\n🏪 Onde a venda foi realizada:')
+    print(f'vendedores')
+    for i in sellers:
+        print(f"{i['unique_id']} - {i['name']}")
+    valor = int(input('Insira o valor: '))
+    if not (1 <= valor <= len(sellers)):
+        raise ValueError("Produto inválido.")
+    id_sellers = sellers[valor - 1]['id']
+    horario = datetime.now().isoformat()
+    id_sellers += (str(horario)) + ' - ' + distributors
+   
+    return id_sellers
+
+
+
+id_product = product_key()
+id_distributors = distributors_key(id_product)
+id_sellers = sellers_key(id_distributors)
+
+print('hash final: ',id_sellers)
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+
+    
