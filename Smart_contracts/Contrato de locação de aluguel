@@ -1,0 +1,82 @@
+from token import NUMBER
+
+
+
+
+def info_contrato():
+    while True:
+        entrada_valor = input("Digite o valor do aluguel mensal: ")
+
+        try:
+            valor_aluguel = float(entrada_valor)
+
+            if valor_aluguel > 0:
+                break
+
+        except ValueError:
+            print("Por favor, digite um número válido.")
+
+
+    while True:
+        entrada_aluguel = input("Digite o tempo de aluguel (em meses):\n 1- O tempo de aluguel deve ser superior a 3 meses\n 2- digite em meses o tempo de locação ")
+
+        try:
+            tempo_aluguel = float(entrada_aluguel)
+
+            if tempo_aluguel >= 3:
+                break  # Entrada válida → sai do loop
+            else:
+                print("O tempo de aluguel deve ser superior a 3 meses.")
+
+        except ValueError:
+            print("Por favor, digite um número válido.")
+
+
+    while True:
+        entrada_multa_fixa = input('Valor de multa fixa:\n 1- cobrada no ato caso aja atraso no pagamento\n 2- o valor não pode ser superior a 30% do valor do aluguel')
+
+        try:
+            multa_fixa = float(entrada_multa_fixa)
+
+            if multa_fixa < valor_aluguel * 0.3 and multa_fixa > 0:
+                break
+            else:
+                print('Não pode ser um valor superior a 30% do valor mensal de aluguel')
+
+        except ValueError:
+            print("Por favor digite um dado válido")
+
+
+    while True:
+        entrada_multa_diario = input('Valor de multa diaria:\n 1- cobrada através do porcentagem do total do aluguel\n 2- cobrada por dia após a da mensalidade\n 3- o valor deve ser de no maximo 3 % do valor do aluguel\n')
+
+        try:
+            multa_diaria= float(entrada_multa_diario)
+
+            if multa_diaria < valor_aluguel * 0.03 and multa_fixa > 0:
+                break
+            else:
+                print('Não pode ser um valor superior a 3% do valor mensal de aluguel')
+
+        except ValueError:
+            print("Por favor digite um dado válido")
+
+
+
+def dados_imovel():
+
+
+
+
+
+
+
+
+
+
+info_contrato()
+
+
+
+
+
