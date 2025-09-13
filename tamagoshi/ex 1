@@ -1,0 +1,41 @@
+import time
+import random
+import paho.mqtt.client as mqtt
+
+broker = "localhost"
+port = 1883
+
+# NÃO precisa do callback_api_version nessa versão
+client = mqtt.Client("bichinho_virtual")
+client.connect(broker, port)
+
+def estado_aleatorio():
+    return random.choice(["sim", "não"])
+
+try:
+    while True:
+        fome = estado_aleatorio()
+        triste = estado_aleatorio()
+        cansado = estado_aleatorio()
+        felicidade = estado_aleatorio()
+        saude = estado_aleatorio()
+
+        client.publish("bichinho/fome", fome)
+        client.publish("bichinho/triste", triste)
+        client.publish("bichinho/cansado", cansado)
+        client.publish("sensor/felicidade", felicidade)
+        client.publish("sensor/saude", saude)
+
+        print("Publicando:")
+        print(f"  bichinho/fome = {fome}")
+        print(f"  bichinho/triste = {triste}")
+        print(f"  bichinho/cansado = {cansado}")
+        print(f"  sensor/felicidade = {felicidade}")
+        print(f"  sensor/saude = {saude}")
+        print("-" * 30)
+
+        time.sleep(5)
+
+except KeyboardInterrupt:
+    print("Encerrando...")
+    client.disconnect()
